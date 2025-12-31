@@ -7,15 +7,20 @@ import { errorHandler } from './middleware/errorHandler';
 
 const app: Application = express();
 
-// Middleware
+const allowedOrigins = [
+    "http://localhost:3000",
+    config.frontendUrl, // Production URL from env
+    /\.vercel\.app$/ // Allow any Vercel deployment (previews & production)
+].filter(Boolean);
+
 app.use(cors({
-  origin: config.frontendUrl,
-  credentials: true,
+    origin: allowedOrigins,
+    credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Request logging middleware
 app.use((req: Request, res: Response, next) => {
   console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
   next();
