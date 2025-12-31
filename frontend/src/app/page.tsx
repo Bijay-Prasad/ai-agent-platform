@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import AnimatedGridPattern from "@/components/magicui/animated-grid-pattern";
 import { ChatInterface } from "@/components/chat/ChatInterface";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 export default function Home() {
   return (
@@ -18,6 +19,10 @@ export default function Home() {
           "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
         )}
       />
+
+      <div className="absolute top-4 right-4 z-50">
+        <AnimatedThemeToggler />
+      </div>
 
       {/* Main Chat Interface */}
       <div className="z-10 w-full max-w-4xl items-center justify-center font-mono text-sm lg:flex">

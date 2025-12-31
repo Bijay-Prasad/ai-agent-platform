@@ -24,9 +24,9 @@ export const MessageBubble = ({ message }: MessageBubbleProps) => {
                 isUser ? "flex-row-reverse" : "flex-row"
             )}
         >
-            <Avatar className={cn("h-8 w-8", isUser ? "bg-primary" : "bg-muted")}>
-                <AvatarFallback>
-                    {isUser ? <User className="h-5 w-5 text-primary-foreground" /> : <Bot className="h-5 w-5" />}
+            <Avatar className="h-8 w-8">
+                <AvatarFallback className={isUser ? "bg-primary text-primary-foreground" : "bg-muted"}>
+                    {isUser ? <User className="h-5 w-5" /> : <Bot className="h-5 w-5" />}
                 </AvatarFallback>
             </Avatar>
 
