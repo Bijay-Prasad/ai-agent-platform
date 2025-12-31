@@ -20,7 +20,7 @@ interface HistoryResponse {
   messages: Message[];
 }
 
-const API_Base_URL = 'http://localhost:5000/api';
+const API_Base_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
 export const chatApi = {
   sendMessage: async (message: string, sessionId?: string): Promise<ChatResponse> => {
